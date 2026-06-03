@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1f2443;
+  --color-green: #8dc140;
+  --color-green-hover: #7ab135;
+  --color-navy-light: #2a305a;
+  --color-neutral: #f8fafc;
+  --color-text-main: #1a1e2e;
+  --color-text-light: #64748b;
+  
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  @apply text-text-main bg-white font-sans antialiased;
+}
