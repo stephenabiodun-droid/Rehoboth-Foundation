@@ -1,9 +1,10 @@
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send, Loader2 } from "lucide-react";
 import { GoogleGenAI } from "@google/genai";
 import { cn } from "@/lib/utils";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+const apiKey = process.env.GEMINI_API_KEY;
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 type Message = {
   role: "user" | "model";
@@ -39,6 +40,10 @@ export function Chatbot() {
     setIsLoading(true);
 
     try {
+      if (!ai) {
+        throw new Error("Chatbot is currently unavailable.");
+      }
+
       const systemInstruction = `You are a helpful, courteous assistant for RHOHF, a global non-profit organization.
 Mission: Empower vulnerable communities globally via sustainable development.
 Focus Areas: Health & Wellness (medical care, clean water), Youth Education (scholarships, vocational training), Women's Empowerment (micro-loans, leadership).
