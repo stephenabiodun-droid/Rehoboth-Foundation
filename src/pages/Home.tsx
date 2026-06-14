@@ -38,12 +38,7 @@ export function Home() {
                 >
                   Our Initiatives
                 </Link>
-                <Link 
-                  to="/about" 
-                  className="border-2 border-navy text-navy hover:bg-navy hover:text-white px-7 py-3.5 rounded font-bold text-[14px] transition-colors"
-                >
-                  Watch Impact Film
-                </Link>
+
               </motion.div>
             </div>
             <motion.div 
